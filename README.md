@@ -1,2 +1,3 @@
-# dots
-An updated collection of useful dotfiles, utilities, and scripts that forms refcell's devx.
+### https://github.com/refcell/dots/labels/dots • https://github.com/refcell/dots/labels/neovim https://github.com/refcell/dots/labels/catppuccin https://github.com/refcell/dots/labels/alacritty
+
+_refcell's toolchain and useful utilities_
