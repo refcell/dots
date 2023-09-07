@@ -1,31 +1,30 @@
 -- Highlights --
 local highlights = {
-    nightfox = function()
-    -- Pull in the nightfox colors
-    local nfox = require("nightfox.palette").load("nightfox")
-    -- print(vim.inspect(nfox))
-    local fg = nfox.fg0
-    local bg = nfox.bg0
-    local bg1 = nfox.bg1
-    local bg2 = nfox.bg2
-    local green = nfox.green.base
+    -- NvChad-esq Telescope Theme for Catppuccin
+		catppuccin = function()
+			-- Pull in the catppuccin mocha colors
+			local mocha = require("catppuccin.palettes").get_palette("mocha")
+			local fg, bg = mocha.text, mocha.base
+			local bg_alt = mocha.mantle
+			local mauve = mocha.mauve
+			local green = mocha.green
 
-    -- return a table of highlights for telescope based on colors gotten from highlight groups
-    return {
-        TelescopeBorder = { fg = bg1, bg = bg },
-        TelescopeNormal = { bg = bg },
-        TelescopePreviewBorder = { fg = bg, bg = bg },
-        TelescopePreviewNormal = { bg = bg },
-        TelescopePreviewTitle = { fg = bg, bg = bg2 },
-        TelescopePromptBorder = { fg = bg1, bg = bg1 },
-        TelescopePromptNormal = { fg = fg, bg = bg1 },
-        TelescopePromptPrefix = { fg = green, bg = bg1 },
-        TelescopePromptTitle = { fg = bg, bg = green },
-        TelescopeResultsBorder = { fg = bg, bg = bg },
-        TelescopeResultsNormal = { bg = bg },
-        TelescopeResultsTitle = { fg = bg, bg = bg },
-    }
-    end,
+			-- return a table of highlights for telescope based on colors gotten from highlight groups
+			return {
+				TelescopeBorder = { fg = bg_alt, bg = bg },
+				TelescopeNormal = { bg = bg },
+				TelescopePreviewBorder = { fg = bg, bg = bg },
+				TelescopePreviewNormal = { bg = bg },
+				TelescopePreviewTitle = { fg = bg, bg = mauve },
+				TelescopePromptBorder = { fg = bg_alt, bg = bg_alt },
+				TelescopePromptNormal = { fg = fg, bg = bg_alt },
+				TelescopePromptPrefix = { fg = green, bg = bg_alt },
+				TelescopePromptTitle = { fg = bg, bg = green },
+				TelescopeResultsBorder = { fg = bg, bg = bg },
+				TelescopeResultsNormal = { bg = bg },
+				TelescopeResultsTitle = { fg = bg, bg = bg },
+			}
+		end,
 };
 
 return highlights;

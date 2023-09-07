@@ -1,6 +1,12 @@
+import:
+    - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+
+env:
+  TERM: xterm-256color
+
 font:
   normal:
-    family: MesloLGS NF
+    family: MesloLGS Nerd Font
 
 window:
   opacity: 0.80
@@ -22,37 +28,37 @@ key_bindings:
   - { key: Right, mods: Alt, chars: "\x1BF" }
   - { key: Left, mods: Alt, chars: "\x1BB" }
 
-# Adapted Night Owl Color Scheme
-colors:
-  # Default colors
-  primary:
-    background: "0x192330" # "0x162331"
-    foreground: "0xe6eefb"
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: "0xffffff"
-    cursor: "0x7e57c2"
-
-  # Normal colors
-  normal:
-    black: "0x000000"
-    red: "0xef5350"
-    green: "0x72b498"
-    yellow: "0xaddb67"
-    blue: "0x82aaff"
-    magenta: "0xc792ea"
-    cyan: "0x23cfd0"
-    white: "0xffffff"
-
-  # Bright colors
-  bright:
-    black: "0x575656"
-    red: "0xef5350"
-    green: "0x22da6e"
-    yellow: "0xffeb95"
-    blue: "0x82aaff"
-    magenta: "0xc792ea"
-    cyan: "0x7fdbca"
-    white: "0xffffff"
-
+# # Adapted Night Owl Color Scheme
+# colors:
+#   # Default colors
+#   primary:
+#     background: "0x192330" # "0x162331"
+#     foreground: "0xe6eefb"
+#
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: "0xffffff"
+#     cursor: "0x7e57c2"
+#
+#   # Normal colors
+#   normal:
+#     black: "0x000000"
+#     red: "0xef5350"
+#     green: "0x72b498"
+#     yellow: "0xaddb67"
+#     blue: "0x82aaff"
+#     magenta: "0xc792ea"
+#     cyan: "0x23cfd0"
+#     white: "0xffffff"
+#
+#   # Bright colors
+#   bright:
+#     black: "0x575656"
+#     red: "0xef5350"
+#     green: "0x22da6e"
+#     yellow: "0xffeb95"
+#     blue: "0x82aaff"
+#     magenta: "0xc792ea"
+#     cyan: "0x7fdbca"
+#     white: "0xffffff"
+#

@@ -1,18 +1,8 @@
-# path to your oh-my-zsh installation
+# ZSH Bash Shell Config
 export ZSH="$HOME/.oh-my-zsh"
-
 eval "$(zoxide init zsh)"
-
-# Go Version Manager
-#
-# This allows you to select golang versions using the "gvm" command.
-# To select a specific version, use "gvm use <version number>"
-# To view all versions, use "gvm list"
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# see https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
+PROMPT_EOL_MARK=''
 plugins=(
   git
   bundler
@@ -25,58 +15,61 @@ plugins=(
   npm
 )
 
-PROMPT_EOL_MARK=''
-
 source $ZSH/oh-my-zsh.sh
 
-export GITHUB_TOKEN=""
-alias center="^+⌥+e && ^+⌥+c"
+# Go Version Manager
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-alias gochecks="gosec -fmt=json -out=results.json ./..."
-alias whatsmyip="dig +short txt ch whoami.cloudflare @1.0.0.1"
-
-alias octane="sshpass -f <(printf '%s\n' $OCTANE_PASSWORD) ssh andreas@68.104.25.122"
-alias whitenoise="sshpass -f <(printf '%s\n' $WHITENOISE_PASSWORD) ssh andreas@71.105.135.50"
-alias cain="ssh -i \"~/.ssh/cain.pem\" ubuntu@ec2-3-95-33-182.compute-1.amazonaws.com"
-
-# Optimism Tailscale K8s
+# Optimism Shortcuts
+alias glint="golangci-lint run -E goimports,sqlclosecheck,bodyclose,asciicheck,misspell,errorlint --timeout 5m -e \"errors.As\" -e \"errors.Is\" ./..."
+alias gtest="go test -v ./..."
+alias to="tmux a -t optimism"
 alias op-dev-connect="gcloud container clusters get-credentials oplabs-dev-client-primary --region us-central1 --project oplabs-dev-client"
 alias op-dev-ctx="kubie ctx"
-
-# Optimism Nodes
-alias opnode-goerli="wscat -c ws://71.105.135.50:9992"
-alias opnode-mainnet="wscat -c ws://68.104.25.122:9992"
-alias opnode-goerli-js="geth attach http://71.105.135.50:9991"
-alias opnode-mainnet-js="geth attach http://68.104.25.122:9991"
+alias opc="nvm use 16 && yarn lint && forge test -vvv && yarn gas-snapshot && yarn storage-snapshot"
 alias og="gcloud auth login --update-adc"
 
-# export GOROOT="/usr/local/Cellar/go/1.16.6/libexec"
-export GOROOT=""
-export GOPATH="/Users/Shared/Development/go-workspace"
-export PATH="$PATH:$GOPATH/bin"
+# Rust Shortcuts
+alias ru="rustup update"
+alias spark="cargo +nightly fmt --all"
+alias flint="cargo check --all && cargo +nightly fmt -- --check && cargo +nightly clippy --all --all-features -- -D warnings && cargo test --all --all-features"
+alias rock='spark && flint'
+alias eagle="cargo test -- --show-output"
 
-# github pat
-export PERSONAL_ACCESS_TOKEN="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"
+# Reth Shortcuts
+alias rethc="rethf && rethfmt && rethclippy"
+alias rethclippy="cargo +nightly clippy --all --all-features -- -A clippy::incorrect_clone_impl_on_copy_type -A clippy::arc_with_non_send_sync"
+alias rethf="cargo +nightly fmt --all"
+alias rethfmt="cargo +nightly fmt --all --check"
+alias rethtests="cargo +nightly nextest run --locked --all-features --workspace --exclude examples --exclude ef-tests -E 'kind(lib)' -E 'kind(bin)' -E 'kind(proc-macro)'"
+alias rethdoctest="cargo +nightly test --doc --all --all-features"
+alias rethci="rethfmt && rethclippy && rethtests && rethdoctest"
 
-# rust bin configs
-export PATH="$PATH:/Users/andreasbigger/.foundry/bin"
-export PATH="$PATH:/Users/andreasbigger/.huff/bin"
-export PATH="$PATH:$(yarn global bin)"
+alias orethclippy="cargo +nightly clippy --all --features optimism -- -A clippy::incorrect_clone_impl_on_copy_type -A clippy::arc_with_non_send_sync"
+alias orethtests="cargo +nightly nextest run --locked --features optimism --workspace --exclude examples --exclude ef-tests -E 'kind(lib)' -E 'kind(bin)' -E 'kind(proc-macro)'"
+alias orethdoctest="cargo +nightly test --doc --all --features optimism"
 
-# Python sourcing
-export PATH="$PATH:/Users/andreasbigger/Library/Python/3.9/bin"
-export PATH="$PATH:/opt/homebrew/bin"
+# Graphite Aliases
+alias g="gt"
+alias gtu="npm install -g @withgraphite/graphite-cli@latest"
+alias gtsy="git checkout develop && git pull && gt repo sync && gt usr && gt ss"
 
-# rust stuff
-export CARGO_NET_GIT_FETCH_WITH_CLI=true
+# Tiling Shortcuts
+alias center="^+⌥+e && ^+⌥+c"
 
-# android
-# export ANDROID_HOME=$HOME/Library/Android/sdk
-# export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-# export PATH=$PATH:$ANDROID_HOME/tools
-# export PATH=$PATH:$ANDROID_HOME/platform-tools
-#
-# aliases
+# Tmux Shortcuts
+alias tl="tmux ls"
+alias ts="tmux source-file ~/.tmux.conf"
+alias tpmi="~/.tmux/plugins/tpm/bin/install_plugins"
+alias tpmu="~/.tmux/plugins/tpm/bin/update_plugins all"
+alias tpmr="~/.tmux/plugins/tpm/bin/clean_plugins"
+
+# Useful Aliases
+alias n="nvim"
+alias c="clear"
+alias gochecks="gosec -fmt=json -out=results.json ./..."
+alias whatsmyip="dig +short txt ch whoami.cloudflare @1.0.0.1"
+alias tailscale=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 alias gm=/usr/local/bin/gm
 alias s="source ~/.zshrc"
 alias gb="git-branchless"
@@ -84,77 +77,7 @@ alias dc="docker-compose"
 alias kx="kubectx"
 alias k="kubectl"
 alias python=/usr/bin/python3
-alias spark="cargo +nightly fmt --all"
 alias sleep="pmset sleepnow"
-alias flint="cargo check --all && cargo +nightly fmt -- --check && cargo +nightly clippy --all --all-features -- -D warnings && cargo test --all --all-features"
-alias rock='spark && flint'
-alias eagle="cargo test -- --show-output"
-alias c="code ."
-alias g="gt"
+alias fixsubmodules="git submodule foreach git reset --hard"
 
- # Nix
- # if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
- #    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
- # fi
- # End Nix
-
- # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# ruby
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$PATH:/Users/andreasbigger/.archon/bin"
-export PATH="$PATH:/Users/andreasbigger/.arch/bin"
-export PATH="$PATH:/Users/andreasbigger/.gvm/bin"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/andreasbigger/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/andreasbigger/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/andreasbigger/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/andreasbigger/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
-
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/andreasbigger/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andreasbigger/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/andreasbigger/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andreasbigger/google-cloud-sdk/completion.zsh.inc'; fi
-
-# [[ -s "/Users/andreasbigger/.gvm/scripts/gvm" ]] && source "/Users/andreasbigger/.gvm/scripts/gvm"
-#compdef gt
-###-begin-gt-completions-###
-#
-# yargs command completion script
-#
-# Installation: gt completion >> ~/.zshrc
-#    or gt completion >> ~/.zprofile on OSX.
-#
-# _gt_yargs_completions()
-# {
-#   local reply
-#   local si=$IFS
-#   IFS=$'
-# ' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" gt --get-yargs-completions "${words[@]}"))
-#   IFS=$si
-#   _describe 'values' reply
-# }
-# compdef _gt_yargs_completions gt
-###-end-gt-completions-###
-
-
+eval "$(~/.cargo/bin/rtx activate zsh)"

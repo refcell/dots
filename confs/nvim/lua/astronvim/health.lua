@@ -24,27 +24,42 @@ function M.check()
   end
 
   local programs = {
-    { cmd = "git", type = "error", msg = "Used for core functionality such as updater and plugin management" },
+    {
+      cmd = { "git" },
+      type = "error",
+      msg = "Used for core functionality such as updater and plugin management",
+      extra_check = function(program)
+        local git_version = require("astronvim.utils.git").git_version()
+        if git_version then
+          if git_version.major < 2 or (git_version.major == 2 and git_version.min < 19) then
+            program.msg = ("Git %s installed, >= 2.19.0 is required"):format(git_version.str)
+          else
+            return true
+          end
+        else
+          program.msg = "Unable to validate git version"
+        end
+      end,
+    },
     {
       cmd = { "xdg-open", "open", "explorer" },
       type = "warn",
       msg = "Used for `gx` mapping for opening files with system opener (Optional)",
     },
-    { cmd = "lazygit", type = "warn", msg = "Used for mappings to pull up git TUI (Optional)" },
-    { cmd = "node", type = "warn", msg = "Used for mappings to pull up node REPL (Optional)" },
-    { cmd = "gdu", type = "warn", msg = "Used for mappings to pull up disk usage analyzer (Optional)" },
-    { cmd = "btm", type = "warn", msg = "Used for mappings to pull up system monitor (Optional)" },
+    { cmd = { "lazygit" }, type = "warn", msg = "Used for mappings to pull up git TUI (Optional)" },
+    { cmd = { "node" }, type = "warn", msg = "Used for mappings to pull up node REPL (Optional)" },
+    { cmd = { "gdu" }, type = "warn", msg = "Used for mappings to pull up disk usage analyzer (Optional)" },
+    { cmd = { "btm" }, type = "warn", msg = "Used for mappings to pull up system monitor (Optional)" },
     { cmd = { "python", "python3" }, type = "warn", msg = "Used for mappings to pull up python REPL (Optional)" },
   }
 
   for _, program in ipairs(programs) do
-    if type(program.cmd) == "string" then program.cmd = { program.cmd } end
     local name = table.concat(program.cmd, "/")
     local found = false
     for _, cmd in ipairs(program.cmd) do
       if vim.fn.executable(cmd) == 1 then
         name = cmd
-        found = true
+        if not program.extra_check or program.extra_check(program) then found = true end
         break
       end
     end

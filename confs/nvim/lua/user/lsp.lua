@@ -3,6 +3,7 @@ local lsp = {
     -- Enable servers that you already have installed without mason.
     servers = {
         "nomic_solidity",
+        "gopls",
     },
 
     formatting = {
@@ -46,7 +47,9 @@ local lsp = {
         -- Rust Analyzer --
         rust_analyzer = {
             settings = {
-                ["rust-analyzer"] = { cargo = {} },
+                ["rust-analyzer"] = { cargo = {
+                    features = { "optimism" },
+                } },
             },
         },
     },
