@@ -26,28 +26,29 @@ end
 ---@return table|nil # The loaded module if successful or nil
 local function load_module_file(module)
   -- placeholder for final return value
-  local found_module = nil
+  local found_file = nil
   -- search through each of the supported configuration locations
   for _, config_path in ipairs(astronvim.supported_configs) do
     -- convert the module path to a file path (example user.init -> user/init.lua)
     local module_path = config_path .. "/lua/" .. module:gsub("%.", "/") .. ".lua"
     -- check if there is a readable file, if so, set it as found
-    if vim.fn.filereadable(module_path) == 1 then found_module = module_path end
+    if vim.fn.filereadable(module_path) == 1 then found_file = module_path end
   end
   -- if we found a readable lua file, try to load it
-  if found_module then
+  local out = nil
+  if found_file then
     -- try to load the file
     local status_ok, loaded_module = pcall(require, module)
     -- if successful at loading, set the return variable
     if status_ok then
-      found_module = loaded_module
+      out = loaded_module
     -- if unsuccessful, throw an error
     else
-      vim.api.nvim_err_writeln("Error loading file: " .. found_module .. "\n\n" .. loaded_module)
+      vim.api.nvim_err_writeln("Error loading file: " .. found_file .. "\n\n" .. loaded_module)
     end
   end
   -- return the loaded module or nil if no file found
-  return found_module
+  return out
 end
 
 --- Main configuration engine logic for extending a default configuration table with either a function override or a table to merge into the default option
@@ -95,7 +96,7 @@ end
 
 --- User configuration entry point to override the default options of a configuration table with a user configuration file or table in the user/init.lua user settings
 ---@param module string The module path of the override setting
----@param default? table The default settings that will be overridden
+---@param default? any The default value that will be overridden
 ---@param extend? boolean # Whether extend the default settings or overwrite them with the user settings entirely (default: true)
 ---@return any # The new configuration settings with the user overrides applied
 function astronvim.user_opts(module, default, extend)
@@ -126,6 +127,6 @@ if options.pin_plugins == nil then options.pin_plugins = options.channel == "sta
 --- table of user created terminals
 astronvim.user_terminals = {}
 --- table of language servers to ignore the setup of, configured through lsp.skip_setup in the user configuration
-astronvim.lsp = { skip_setup = astronvim.user_opts("lsp.skip_setup", {}) }
+astronvim.lsp = { skip_setup = astronvim.user_opts("lsp.skip_setup", {}), progress = {} }
 --- the default colorscheme to apply on startup
 astronvim.default_colorscheme = astronvim.user_opts("colorscheme", "astrotheme", false)

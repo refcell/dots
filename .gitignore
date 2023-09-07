@@ -1,3 +1,5 @@
 
 
 **/node_modules** - contains all the dependencies for the project
+
+confs/tmux/.tmux/plugins/**

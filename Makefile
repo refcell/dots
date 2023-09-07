@@ -1,25 +1,39 @@
-.PHONY: install push
+.PHONY: install clean load push backup recover new_branch
+
+all: backup
 
 install:
 	@make backup
 	@echo "Proceeding with installation..."
-	@cp ./.zshrc ~/.zshrc
-	@cp ./robbyrussell-mod.zsh-theme ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
-	@cp ./.tmux.conf ~/.tmux.conf
-	@cp -R ./.config/* ~/.config/
-	@cp -R ./.gm ~/
+	@cp ./confs/shell/.zshrc ~/.zshrc
+	@cp ./confs/shell/robbyrussell-mod.zsh-theme ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+	@cp ./confs/tmux/.tmux.conf ~/.tmux.conf
+	@cp ./confs/tmux/.tmux ~/.tmux
+	@cp -R ./confs/nvim ~/.config/nvim
+	@mkdir -p ~/.gm
+	@cp -R ./confs/gm/* ~/.gm/
 	@(cd ~/.gm/codebase && cargo build --release)
 	@cp ~/.gm/codebase/target/release/gm ~/.gm/bin/gm
 	@rm -rf ~/.gm/codebase/target
 
+clean:
+	@rm -rf ./confs/*
+
+load:
+	@mkdir -p ./confs/shell
+	@cp ~/.zshrc ./confs/shell/.zshrc
+	@mkdir -p ./confs/tmux
+	@cp ~/.tmux.conf ./confs/tmux/.tmux.conf
+	@cp -R ~/.tmux ./confs/tmux/
+	@cp ~/.alacritty.yml ./confs/alacritty/.alacritty.yml
+	@mkdir -p ./confs/gm
+	@cp -R ~/.gm/* ./confs/gm
+	@mkdir -p ./confs/nvim
+	@cp -R ~/.config/nvim/* ./confs/nvim/
+
 push:
-	@cp ~/.zshrc ./.zshrc
-	@cp ~/.tmux.conf ./.tmux.conf
-	@cp ~/.alacritty.yml ./.alacritty.yml
-	@cp -R ~/.tmux ./.tmux
-	@cp -R ~/.gm ./
-	@mkdir -p ./.config/nvim/
-	@cp -R ~/.config/nvim/* ./.config/nvim/
+	@make clean
+	@make load
 	@git add .
 	@git commit -m "automated dot updates :camera_flash:"
 	@git push

@@ -6,10 +6,11 @@ return {
     return {
       opts = {
         disable_winbar_cb = function(args)
-          return status.condition.buffer_matches({
-            buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
-            filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
-          }, args.buf)
+          return not require("astronvim.utils.buffer").is_valid(args.buf)
+            or status.condition.buffer_matches({
+              buftype = { "terminal", "prompt", "nofile", "help", "quickfix" },
+              filetype = { "NvimTree", "neo%-tree", "dashboard", "Outline", "aerial" },
+            }, args.buf)
         end,
       },
       statusline = { -- statusline
@@ -49,7 +50,7 @@ return {
           condition = function(self)
             self.winid = vim.api.nvim_tabpage_list_wins(0)[1]
             return status.condition.buffer_matches(
-              { filetype = { "aerial", "dapui_.", "neo%-tree", "NvimTree" } },
+              { filetype = { "aerial", "dapui_.", "dap-repl", "neo%-tree", "NvimTree", "edgy", "undotree" } },
               vim.api.nvim_win_get_buf(self.winid)
             )
           end,
