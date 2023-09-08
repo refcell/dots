@@ -19,6 +19,10 @@ install:
 clean:
 	@rm -rf ./confs/*
 
+load-nvim:
+	@mkdir -p ./confs/nvim
+	@cp -R ~/.config/nvim/* ./confs/nvim/
+
 load:
 	@mkdir -p ./confs/shell
 	@cp ~/.zshrc ./confs/shell/.zshrc
@@ -28,8 +32,7 @@ load:
 	@cp ~/.alacritty.yml ./confs/alacritty/.alacritty.yml
 	@mkdir -p ./confs/gm
 	@cp -R ~/.gm/* ./confs/gm
-	@mkdir -p ./confs/nvim
-	@cp -R ~/.config/nvim/* ./confs/nvim/
+	@make load-nvim
 
 push:
 	@make clean

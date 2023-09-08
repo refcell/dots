@@ -11,6 +11,9 @@ return {
   -- Wakatime
   { "wakatime/vim-wakatime" },
 
+  -- Docker Tools --
+  { "kkvh/vim-docker-tools", lazy = false },
+
   -- Disable nvim-dap
   { "mfussenegger/nvim-dap",        enabled = false },
   { "jay-babu/mason-nvim-dap.nvim", enabled = false },

@@ -1,11 +1,8 @@
 -- Heirline Statusline Configs --
--- Overrides Heirline Defaults --
 local statusline_config = function(_, opts)
   local status = require "astronvim.utils.status"
-  -- local nfox = require("nightfox.palette").load("nightfox")
   local mocha = require("catppuccin.palettes").get_palette("mocha")
   opts.statusline = {
-    -- statusline
     hl = { fg = "fg", bg = "bg" },
     status.component.mode {
       hl = { fg = "#000000" },
@@ -15,7 +12,6 @@ local statusline_config = function(_, opts)
         color = function()
           return {
             main = status.hl.mode_bg(),
-            -- right = nfox.blue.dark,
           }
         end,
       },
@@ -57,7 +53,6 @@ local statusline_config = function(_, opts)
       hl = {
 				fg = mocha.overlay2,
 			},
-      -- padding = { right = 1 },
     },
     status.component.treesitter {
       str = { str = "🌲🪑", icon = { kind = "ActiveTS" }, padding = { left = 1 } },
@@ -72,10 +67,6 @@ local statusline_config = function(_, opts)
     status.component.nav {
       surround = {
         separator = "right",
-        -- color = {
-        --   main = nfox.fg3,
-        --   left = nfox.fg4,
-        -- },
         padding = { left = 1 },
       },
       ruler = { padding = { left = 1 } },
@@ -86,7 +77,6 @@ local statusline_config = function(_, opts)
         color = function()
           return {
             main = status.hl.mode_bg(),
-            -- left = nfox.fg3,
           }
         end,
       },
