@@ -37,6 +37,7 @@ function btns()
         "鈴  lazy           z    │       search        s",
       },
       opts = {
+        shrink_margin = false,
         position = "center",
         hl = {
           button_hl, button_hl, button_hl,

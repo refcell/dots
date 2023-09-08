@@ -31,6 +31,7 @@ function docker()
       type = "text",
       val = docker_containers,
       opts = {
+        shrink_margin = false,
         position = "center",
         hl = "SpecialComment",
       },
