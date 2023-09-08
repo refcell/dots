@@ -42,6 +42,7 @@ function infos()
         " v" .. version.major .. "." .. version.minor .. "." .. version.patch .. " | " .. docker_version,
       },
       opts = {
+        shrink_margin = false,
         position = "center",
         hl = "WarningMsg",
       },

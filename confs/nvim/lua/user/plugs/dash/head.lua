@@ -8,6 +8,7 @@ return {
   val = headers[1],
   opts = {
     position = "center",
+    shrink_margin = false,
     hl = "WarningMsg",
   },
 };
