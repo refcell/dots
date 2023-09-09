@@ -68,6 +68,53 @@ local mappings = {
         ["<C-r>"] = { "<cmd>Telescope git_branches<cr>", desc = "Telescope git branch" },
         ["<C-m>"] = { "<cmd>Telescope git_commits<cr>", desc = "Telescope git commits" },
         ["<C-b>"] = { "<cmd>Telescope buffers previewer=false<cr>", desc = "Telescope preview buffers" },
+
+        -- Rust Tools / Crates
+		["<leader>r"] = { name = "Rust Tools" },
+		["<leader>rt"] = { "<cmd>RustOpenCargo<cr>", desc = "Open Cargo.toml" },
+		["<leader>rp"] = { "<cmd>RustParentModule<cr>", desc = "Go to parent module" },
+		["<leader>re"] = { "<cmd>RustExpandMacro<cr>", desc = "Expand macro (recursively)" },
+		["<leader>rr"] = { "<cmd>RustRunnables<cr>", desc = "Open Runnables" },
+		["<leader>rc"] = { name = "Crate Options" },
+		["<leader>rcd"] = {
+			function()
+				require("crates").open_documentation()
+			end,
+			desc = "Open Crate Docs",
+		},
+		["<leader>rcp"] = {
+			function()
+				require("crates").show_popup()
+			end,
+			desc = "Crate Information",
+		},
+		["<leader>rcf"] = {
+			function()
+				require("crates").show_features_popup()
+			end,
+			desc = "Crate Features",
+		},
+		["<leader>rcv"] = {
+			function()
+				require("crates").show_versions_popup()
+			end,
+			desc = "Crate Versions",
+		},
+
+        ["s"] = {
+			function()
+				local hop = require("hop")
+				local directions = require("hop.hint").HintDirection
+				hop.hint_char1({ direction = directions.AFTER_CURSOR })
+			end,
+		},
+		["S"] = {
+			function()
+				local hop = require("hop")
+				local directions = require("hop.hint").HintDirection
+				hop.hint_char1({ direction = directions.BEFORE_CURSOR })
+			end,
+		},
     },
     i = {
         -- Copilot: Accept suggestion
