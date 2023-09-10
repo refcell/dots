@@ -1,12 +1,13 @@
 -- Configuration --
 local config = {
-  lsp = require "user.lsp",
-  options = require "user.options",
-  polish = require "user.polishing",
-  plugins = require "user.plugs",
-  highlights = require "user.highlights",
-  mappings = require "user.user_mappings",
-  updater = require "user.updater",
+  plugins = require("plugs"),
+
+  lsp = require("user.lsp"),
+  mappings = require("user.maps"),
+  updater = require("user.updater"),
+  options = require("user.options"),
+  polish = require("user.polishing"),
+  highlights = require("user.highlights"),
 
   -- Styling --
   colorscheme = "catppuccin",
