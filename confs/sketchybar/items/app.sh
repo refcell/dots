@@ -17,6 +17,7 @@ opts=(
   padding_right=8
   background.height=22
   background.corner_radius=8
+  background.border_width=0
 )
 
 sketchybar --add item app left --set app "${opts[@]}" --subscribe app front_app_switched

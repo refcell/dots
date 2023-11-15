@@ -14,9 +14,9 @@ bar=(
   position=top 
   notch_width=188
   sticky=on
-  padding_left=50
+  padding_left=48
   padding_top=50
-  padding_right=50
+  padding_right=48
   color=0x00000000
 )
 sketchybar --bar "${bar[@]}"
@@ -28,8 +28,11 @@ default=(
   icon.color="$FOREGROUND"
   label.font="$FONT:Regular:11.0"
   label.color="$FOREGROUND"
-  padding_left=5
-  padding_right=5
+  background.height=34
+  background.border_color="0xffe1e3e4"
+  background.border_width=2
+  padding_left=3
+  padding_right=3
   label.padding_left=6
   label.padding_right=6
   icon.padding_left=6

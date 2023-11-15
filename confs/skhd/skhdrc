@@ -1,3 +1,20 @@
+# Global Hotkeys
+ctrl + alt - a [
+  "Alacritty" : /opt/homebrew/bin/skhd -k "cmd - h"
+  * : open /Applications/Alacritty.app
+]
+ctrl + alt - s [
+  "Slack" : /opt/homebrew/bin/skhd -k "cmd - h"
+  * : open /Applications/Slack.app
+]
+ctrl + alt - r [
+  "Arc" : /opt/homebrew/bin/skhd -k "cmd - h"
+  * : open /Applications/Arc.app
+]
+ctrl + alt - g [
+  "Telegram" : /opt/homebrew/bin/skhd -k "cmd - h"
+  * : open /Applications/Telegram.app
+]
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + cmd - n : yabai -m space --create && \
@@ -14,8 +31,9 @@ ctrl + alt - n [
 
 # open the last closed window
 ctrl + alt - l [
-  # If the app is finder, don't hide, just focus on the next window
-  "Finder" : /opt/homebrew/bin/skhd -k "cmd + shift - tab"
+  # If the app is finder, close it, and focus on the next window
+  "Finder" : /opt/homebrew/bin/skhd -k "cmd - w" && \
+             /opt/homebrew/bin/skhd -k "cmd + shift - tab"
   * : /opt/homebrew/bin/skhd -k "cmd - h" && \
       /opt/homebrew/bin/skhd -k "cmd + shift - tab"
 ]
@@ -59,22 +77,31 @@ ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
 
 # change window focus within space
 alt - j : yabai -m window --focus south
+cmd + alt - down : yabai -m window --focus south
 alt - k : yabai -m window --focus north
+cmd + alt - up : yabai -m window --focus north
 alt - h : yabai -m window --focus west
+cmd + alt - left : yabai -m window --focus west
 alt - l : yabai -m window --focus east
+cmd + alt - right : yabai -m window --focus east
 
 #change focus between external displays (left and right)
 alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east
 
-# rotate layout clockwise
-ctrl + alt - r : yabai -m space --rotate 270
+# Layout Management (ctrl + cmd - <key>)
+ctrl + cmd - r : yabai -m space --rotate 270
+ctrl + cmd - y : yabai -m space --mirror y-axis
+ctrl + cmd - x : yabai -m space --mirror x-axis
+ctrl + cmd - j : yabai -m window --swap south
+ctrl + cmd - down : yabai -m window --swap south
+ctrl + cmd - k : yabai -m window --swap north
+ctrl + cmd - up : yabai -m window --swap north
+ctrl + cmd - h : yabai -m window --swap west
+ctrl + cmd - left : yabai -m window --swap west
+ctrl + cmd - l : yabai -m window --swap east
+ctrl + cmd - right : yabai -m window --swap east
 
-# flip along y-axis
-ctrl + alt - y : yabai -m space --mirror y-axis
-
-# flip along x-axis
-ctrl + alt - x : yabai -m space --mirror x-axis
 
 # toggle window float
 ctrl + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
@@ -86,13 +113,7 @@ ctrl + alt - 4 : yabai -m window --toggle float --grid 20:20:1:1:18:18
 ctrl + alt - 5 : yabai -m window --toggle float --grid 10:10:1:1:8:8
 
 # balance out tree of windows (resize to occupy same area)
-ctrl + alt - e : yabai -m space --balance
-
-# swap windows
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - h : yabai -m window --swap west
-shift + alt - l : yabai -m window --swap east
+ctrl + cmd - e : yabai -m space --balance
 
 # move window and split
 ctrl + alt - j : yabai -m window --warp south

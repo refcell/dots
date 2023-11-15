@@ -8,12 +8,11 @@ opts=(
    icon=󰖩
    script="$PLUGIN_DIR/wifi.sh"
    click_script="open /System/Library/PreferencePanes/Network.prefPane/"
-   icon.padding_left=10
+   icon.padding_left=12
    icon.padding_right=2
    label.padding_left=4
-   label.padding_right=10
+   label.padding_right=12
    background.color="$BACKGROUND"
-   background.height=30
    background.corner_radius=8
 )
 

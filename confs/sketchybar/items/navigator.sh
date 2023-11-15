@@ -10,6 +10,7 @@ opts=(
   background.padding_top=20
   background.color=0x30ffffff
   background.drawing=off
+  background.border_width=0
   label.drawing=off
   script="$PLUGIN_DIR/space.sh"
 )
@@ -44,5 +45,4 @@ source "$ITEM_DIR/app.sh"
 
 sketchybar --add bracket spaces "${spaces[@]}" space_separator app \
            --set spaces background.color=$BACKGROUND \
-                        background.corner_radius=8   \
-                        background.height=30
+                        background.corner_radius=8
