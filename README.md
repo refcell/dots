@@ -1,6 +1,6 @@
 ### https://github.com/refcell/dots/labels/dots • https://github.com/refcell/dots/labels/neovim https://github.com/refcell/dots/labels/catppuccin https://github.com/refcell/dots/labels/alacritty https://github.com/refcell/dots/labels/yabai https://github.com/refcell/dots/labels/sketchybar
 
-_Refer to [BlueFly](https://github.com/refcell/bluefly)for up-to-date dotfiles._
+_Refer to [BlueFly](https://github.com/refcell/bluefly) for up-to-date dotfiles._
 
 [@refcell](https://github.com/refcell)'s dotfiles, configs, and tooling.
 
