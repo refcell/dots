@@ -1,0 +1,116 @@
+# focus window
+# cmd - h : yabai -m window --focus west
+# cmd - j : yabai -m window --focus south
+# cmd - l : yabai -m window --focus east
+# cmd - k : yabai -m window --focus north
+
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+shift + cmd - n : yabai -m space --create && \
+                   index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                   yabai -m window --space "${index}" && \
+                   yabai -m space --focus "${index}"
+
+# hide the current window and focus the next window
+ctrl + alt - n : yabai -m space --focus next
+
+# move window
+cmd + shift - h : yabai -m window --warp west
+cmd + shift - j : yabai -m window --warp south
+cmd + shift - l : yabai -m window --warp east
+cmd + shift - k : yabai -m window --warp north
+
+# reposition floating window
+ctrl + alt - left   : yabai -m window --grid 1:2:0:0:1:1
+ctrl + alt - right  : yabai -m window --grid 1:2:1:0:1:1
+ctrl + alt - up     : yabai -m window --grid 2:1:0:0:1:1
+ctrl + alt - down   : yabai -m window --grid 2:1:0:1:1:1
+
+alt + shift - left : yabai -m window --resize left:-50:0; \
+                     yabai -m window --resize right:-50:0
+alt + shift - down : yabai -m window --resize bottom:0:50; \
+                     yabai -m window --resize top:0:50
+alt + shift - up : yabai -m window --resize top:0:-50; \
+                   yabai -m window --resize bottom:0:-50
+alt + shift - right : yabai -m window --resize right:50:0; \
+                      yabai -m window --resize left:50:0
+
+# reposition window
+alt + shift - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+alt + shift - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+alt + shift - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+alt + shift - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# fullscreen a window
+ctrl + alt - f : yabai -m window --toggle native-fullscreen
+
+# maximize a window
+ctrl + alt - m : yabai -m window --toggle zoom-fullscreen
+
+# change window focus within space
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+
+#change focus between external displays (left and right)
+alt - s: yabai -m display --focus west
+alt - g: yabai -m display --focus east
+
+# rotate layout clockwise
+ctrl + alt - r : yabai -m space --rotate 270
+
+# flip along y-axis
+ctrl + alt - y : yabai -m space --mirror y-axis
+
+# flip along x-axis
+ctrl + alt - x : yabai -m space --mirror x-axis
+
+# toggle window float
+ctrl + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+# ctrl + alt - 1 : yabai -m window --toggle float --grid 1:1:1:1:1:1
+ctrl + alt - 1 : yabai -m window --toggle float --grid 1:1:0:0:1:1
+ctrl + alt - 2 : yabai -m window --toggle float --grid 40:40:2:2:36:36
+ctrl + alt - 3 : yabai -m window --toggle float --grid 30:30:2:2:26:26
+ctrl + alt - 4 : yabai -m window --toggle float --grid 20:20:1:1:18:18
+ctrl + alt - 5 : yabai -m window --toggle float --grid 10:10:1:1:8:8
+
+# balance out tree of windows (resize to occupy same area)
+ctrl + alt - e : yabai -m space --balance
+
+# swap windows
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - h : yabai -m window --swap west
+shift + alt - l : yabai -m window --swap east
+
+# move window and split
+ctrl + alt - j : yabai -m window --warp south
+ctrl + alt - k : yabai -m window --warp north
+ctrl + alt - h : yabai -m window --warp west
+ctrl + alt - l : yabai -m window --warp east
+
+# move window to display left and right
+shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
+shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+
+#move window to prev and next space
+shift + alt - p : yabai -m window --space prev;
+shift + alt - n : yabai -m window --space next;
+
+# move window to space #
+shift + alt - 1 : yabai -m window --space 1;
+shift + alt - 2 : yabai -m window --space 2;
+shift + alt - 3 : yabai -m window --space 3;
+shift + alt - 4 : yabai -m window --space 4;
+shift + alt - 5 : yabai -m window --space 5;
+shift + alt - 6 : yabai -m window --space 6;
+shift + alt - 7 : yabai -m window --space 7;
+
+# stop/start/restart yabai
+ctrl + alt - q : brew services stop yabai
+ctrl + alt - s : brew services start yabai
+ctrl + alt - r : brew services restart yabai

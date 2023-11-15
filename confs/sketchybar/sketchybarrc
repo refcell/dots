@@ -1,0 +1,54 @@
+#! /bin/bash
+
+FONT="MesloLGS Nerd Font"                       # Font used for all of sketchybar
+ITEM_DIR="$HOME/.config/sketchybar/items"       # Directory where the items are configured
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"   # Directory where plugin scripts are stored
+source "$HOME/.config/sketchybar/colors.sh"     # Loads all defined colors
+
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+
+# Set up the general bar properties
+bar=(
+  height=100
+  position=top 
+  notch_width=188
+  sticky=on
+  padding_left=50
+  padding_top=50
+  padding_right=50
+  color=0x00000000
+)
+sketchybar --bar "${bar[@]}"
+
+# Set up the default item properties
+# https://felixkratz.github.io/SketchyBar/config/items
+default=(
+  icon.font="$FONT:Regular:11.0"
+  icon.color="$FOREGROUND"
+  label.font="$FONT:Regular:11.0"
+  label.color="$FOREGROUND"
+  padding_left=5
+  padding_right=5
+  label.padding_left=6
+  label.padding_right=6
+  icon.padding_left=6
+  icon.padding_right=6
+)
+sketchybar --default "${default[@]}"
+
+# Left hand side items
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/navigator.sh"
+source "$ITEM_DIR/spotify.sh"
+
+# Right hand side items
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/vpn.sh"
+source "$ITEM_DIR/raycast.sh"
+
+# Finalizing Setup
+sketchybar --update
