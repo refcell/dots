@@ -19,6 +19,10 @@ install:
 clean:
 	@rm -rf ./confs/*
 
+####################################################
+# Load Targets: Load local dotfiles into dots/confs
+####################################################
+
 load-nvim:
 	@mkdir -p ./confs/nvim
 	@cp -R ~/.config/nvim/* ./confs/nvim/
@@ -27,6 +31,16 @@ load-sketchybar:
 	@rm -rf ./confs/sketchybar
 	@mkdir -p ./confs/sketchybar
 	@cp -R ~/.config/sketchybar/* ./confs/sketchybar/
+
+load-yabai:
+	@rm -rf ./confs/yabai
+	@mkdir -p ./confs/yabai
+	@cp -R ~/.config/yabai/* ./confs/yabai/
+
+load-skhd:
+	@rm -rf ./confs/skhd
+	@mkdir -p ./confs/skhd
+	@cp -R ~/.config/skhd/* ./confs/skhd/
 
 load:
 	@mkdir -p ./confs/shell

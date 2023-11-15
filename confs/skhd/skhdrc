@@ -1,8 +1,3 @@
-# focus window
-# cmd - h : yabai -m window --focus west
-# cmd - j : yabai -m window --focus south
-# cmd - l : yabai -m window --focus east
-# cmd - k : yabai -m window --focus north
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + cmd - n : yabai -m space --create && \
@@ -11,7 +6,19 @@ shift + cmd - n : yabai -m space --create && \
                    yabai -m space --focus "${index}"
 
 # hide the current window and focus the next window
-ctrl + alt - n : yabai -m space --focus next
+ctrl + alt - n [
+  # If the app is finder, don't hide, just focus on the next window
+  "Finder" : /opt/homebrew/bin/skhd -k "cmd - tab"
+  * : /opt/homebrew/bin/skhd -k "cmd - h"
+]
+
+# open the last closed window
+ctrl + alt - l [
+  # If the app is finder, don't hide, just focus on the next window
+  "Finder" : /opt/homebrew/bin/skhd -k "cmd + shift - tab"
+  * : /opt/homebrew/bin/skhd -k "cmd - h" && \
+      /opt/homebrew/bin/skhd -k "cmd + shift - tab"
+]
 
 # move window
 cmd + shift - h : yabai -m window --warp west
