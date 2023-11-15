@@ -19,6 +19,7 @@ _Refer to [BlueFly](https://github.com/refcell/bluefly) for up-to-date dotfiles.
 - [tmux](https://github.com/tmux/tmux)
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [sketchybar](https://github.com/FelixKratz/SketchyBar)
+- [Dynamic-Island-Sketchybar](https://github.com/crissNb/Dynamic-Island-Sketchybar)
 - [jankyborders](https://github.com/FelixKratz/JankyBorders)
 
 **SketchyBar Setup**

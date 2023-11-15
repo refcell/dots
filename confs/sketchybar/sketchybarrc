@@ -56,3 +56,6 @@ source "$ITEM_DIR/calendar.sh"
 
 # Finalizing Setup
 sketchybar --update
+
+# Dynamic Island
+dynamic-island-sketchybar
