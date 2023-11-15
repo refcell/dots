@@ -7,6 +7,7 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 opts=(
    icon=󰖩
    script="$PLUGIN_DIR/wifi.sh"
+   click_script="open /System/Library/PreferencePanes/Network.prefPane/"
    icon.padding_left=10
    icon.padding_right=2
    label.padding_left=4

@@ -23,6 +23,11 @@ load-nvim:
 	@mkdir -p ./confs/nvim
 	@cp -R ~/.config/nvim/* ./confs/nvim/
 
+load-sketchybar:
+	@rm -rf ./confs/sketchybar
+	@mkdir -p ./confs/sketchybar
+	@cp -R ~/.config/sketchybar/* ./confs/sketchybar/
+
 load:
 	@mkdir -p ./confs/shell
 	@cp ~/.zshrc ./confs/shell/.zshrc

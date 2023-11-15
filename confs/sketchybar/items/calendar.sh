@@ -4,10 +4,10 @@ source $HOME/.config/sketchybar/colors.sh
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
 opts=(
-  icon=
-  icon.color="0xAAC3B1E1"
-  script="$PLUGIN_DIR/raycast.sh"
-  click_script="open -a 'Raycast'; sketchybar --set raycast popup.drawing=off"
+  icon=
+  icon.color="0xFFFF6961"
+  script="$PLUGIN_DIR/calendar.sh"
+  click_script="open -a 'Calendar'; sketchybar --set calendar popup.drawing=off"
   icon.padding_left=10
   icon.padding_right=10
   label.padding_left=0
@@ -18,4 +18,4 @@ opts=(
   background.corner_radius=8
 )
 
-sketchybar --add item raycast right --set raycast "${opts[@]}"
+sketchybar --add item calendar right --set calendar "${opts[@]}"
