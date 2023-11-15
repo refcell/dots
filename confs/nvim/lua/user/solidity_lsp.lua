@@ -8,7 +8,7 @@ local setup_lsp = function()
     configs.solidity = {
       default_config = {
         cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
-        root_dir = lspconfig.util.find_git_ancestor,
+        -- root_dir = lspconfig.util.find_git_ancestor,
         filetypes = { "solidity" },
         single_file_support = true,
       },
@@ -36,12 +36,12 @@ local setup_lsp = function()
     vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
   end
 
-  lspconfig.solidity.setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
+  -- lspconfig.solidity.setup {
+  --   on_attach = on_attach,
+  --   flags = {
+  --     debounce_text_changes = 150,
+  --   }
+  -- }
 end
 
 return setup_lsp

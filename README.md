@@ -26,7 +26,7 @@ _Refer to [BlueFly](https://github.com/refcell/bluefly) for up-to-date dotfiles.
 
 Install dependencies:
 
-```sh
+```test
 brew install --cask sf-symbols
 brew install jq
 brew install gh
@@ -37,7 +37,7 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.
 Optionally, update outdated packages after running brew commands by adding the following
 bash function to your shell configuration (`.zshrc` if using `omz`).
 
-```sh
+```text
 function brew() {
   command brew "$@" 
 
@@ -47,7 +47,7 @@ function brew() {
 }
 ```
 
-_Inspired by [@FelixKratz]()'s [dotfiles]()._
+_Inspired by [@FelixKratz](https://github.com/FelixKratz)'s [dotfiles](https://github.com/FelixKratz/dotfiles)._
 _Inspired by [@clabby](https://github.com/clabby)'s [dots](https://github.com/clabby/dots)._
 
 <a href="https://dotfyle.com/refcell/dots-confs-nvim"><img src="https://dotfyle.com/refcell/dots-confs-nvim/badges/plugins?style=flat" /></a>

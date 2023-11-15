@@ -18,7 +18,10 @@ return {
             command_palette = true, -- position the cmdline and popupmenu together
             lsp_doc_border = false, -- add a border to hover docs and signature help
         },
-        notify = { enabled = false },
+        notify = {
+            enabled = false,
+            background_colour = "#000000",
+        },
         messages = { enabled = false },
         -- cmdline = {
         --     enabled = true, -- enables the Noice cmdline UI

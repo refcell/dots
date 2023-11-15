@@ -5,7 +5,7 @@ local github_prs = GITHUB_PR_INIT
 
 local ghlist = "gh pr list -R ethereum-optimism/optimism -L 1000 -a '@me' "
 local ghjson = "--json number,headRefName,state,title "
-local ghtemplate = "--template '{{range .}}{{tablerow (printf \"#%v\" .number) .title}}{{tablerow .state .headRefName}}{{end}}' "
+local ghtemplate = "--template '{{range .}}{{tablerow (printf \"#%v\" .number) .title}}{{tablerow (printf \"- %v\" .state) .headRefName}}{{end}}' "
 local ghgrep = "| grep '^'"
 
 function github()

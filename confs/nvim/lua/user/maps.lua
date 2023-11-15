@@ -68,6 +68,7 @@ local mappings = {
         ["<C-c>"] = { "<cmd>Copilot auth<cr>", desc = "Authenticate with Copilot" },
         ["<C-s>"] = { "<cmd>Copilot auth signout<cr>", desc = "Sign out of Copilot" },
         ["<C-p>"] = { "<cmd>Copilot panel<cr>", desc = "Open the copilot panel" },
+        ["<C-a>"] = { "<cmd>Copilot accept<cr>", desc = "Accept copilot suggestion." },
 
         -- Telescope Shortcuts --
         ["<C-t>"] = { "<cmd>Telescope<cr>", desc = "Telescope" },
@@ -126,6 +127,10 @@ local mappings = {
     i = {
         -- Copilot: Accept suggestion
         ["<M-Tab>"] = {
+        function() require("copilot.suggestion").accept() end,
+        desc = "[copilot] accept suggestion",
+        },
+        ["<C-a>"] = {
         function() require("copilot.suggestion").accept() end,
         desc = "[copilot] accept suggestion",
         },

@@ -40,5 +40,5 @@ return {
     "goolord/alpha-nvim",
     config = function()
        require("alpha").setup(dashconf)
-    end 
+    end
 };

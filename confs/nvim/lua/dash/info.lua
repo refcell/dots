@@ -33,16 +33,9 @@ function infos()
     { "white", 40, 60 },
   }
 
-  local versions_hl = {
-    { "String", 0,  3 },
-    { "white", 4, 13 },
-    { "Function", 13, 14 },
-    { "white", 14, 20 },
-    { "Function", 25, 26 },
-    { "white", 26, 36 },
-    { "CursorLineNr", 37, 38 },
-    { "white", 38, 50 },
-  }
+  local green_hl = { { "String", 0,  3 } }
+  local blue_hl = { { "Function", 0, 3 } }
+  local red_hl = { { "CursorLineNr", 0, 3 } }
 
   local stats = " " .. lazy_stats.loaded .. "/" .. lazy_stats.count .. " in " .. ms .. " ms"
   local version = " v" .. version.major .. "." .. version.minor .. "." .. version.patch
@@ -51,13 +44,22 @@ function infos()
     {
       type = "text",
       val = {
-        version .. " " .. docker.version .. " " .. golang.version .. " " .. cargo.version,
-        datetime .. "  " .. stats .. "    ",
+        version,
+        docker.version,
+        golang.version,
+        cargo.version,
+        datetime .. "  " .. stats .. "     ",
       },
       opts = {
         shrink_margin = false,
         position = "center",
-        hl = { versions_hl, datetime_hl },
+        hl = {
+          green_hl,
+          blue_hl,
+          blue_hl,
+          red_hl,
+          datetime_hl,
+        },
       },
     },
   }

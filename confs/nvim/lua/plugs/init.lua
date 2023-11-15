@@ -21,8 +21,8 @@ return {
 
   require("dash"),
 
-  require("plugs.markdown"), 
-  require("plugs.hop"),
+  require("plugs.markdown"),
+  require("plugs.hop_plug"),
   require("plugs.heirline"),
   require("plugs.which"),
   require("plugs.theme"),
@@ -38,5 +38,5 @@ return {
   require("plugs.lsplines"),
   require("plugs.neotree"),
   require("plugs.terminal"),
-  require("plugs.crates"),
+  require("plugs.crates_plug"),
 };

@@ -23,6 +23,13 @@ clean:
 # Load Targets: Load local dotfiles into dots/confs
 ####################################################
 
+load: load-nvim load-sketchybar load-yabai load-skhd load-dynamic-island-sketchybar
+
+load-dynamic-island-sketchybar:
+	@rm -rf ./confs/dynamic-island-sketchybar
+	@mkdir -p ./confs/dynamic-island-sketchybar
+	@cp -R ~/.config/dynamic-island-sketchybar/* ./confs/dynamic-island-sketchybar/
+
 load-nvim:
 	@mkdir -p ./confs/nvim
 	@cp -R ~/.config/nvim/* ./confs/nvim/
@@ -42,7 +49,7 @@ load-skhd:
 	@mkdir -p ./confs/skhd
 	@cp -R ~/.config/skhd/* ./confs/skhd/
 
-load:
+loads:
 	@mkdir -p ./confs/shell
 	@cp ~/.zshrc ./confs/shell/.zshrc
 	@mkdir -p ./confs/tmux
