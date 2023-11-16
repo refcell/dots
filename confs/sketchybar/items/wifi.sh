@@ -14,6 +14,7 @@ opts=(
    label.padding_right=12
    background.color="$BACKGROUND"
    background.corner_radius=8
+   background.border_color="$COLOR11"
 )
 
 sketchybar --add item wifi right --set wifi "${opts[@]}" --subscribe wifi wifi_change

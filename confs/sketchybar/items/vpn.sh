@@ -14,6 +14,7 @@ opts=(
    label.padding_right=12
    background.color="$BACKGROUND"
    background.corner_radius=8
+   background.border_color="$PINK_BORDER"
 )
 
 sketchybar --add item vpn right --set vpn "${opts[@]}" 

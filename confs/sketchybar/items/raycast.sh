@@ -5,7 +5,7 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
 opts=(
   icon=
-  icon.color="0xAAC3B1E1"
+  icon.color="$PURPLE_BORDER"
   script="$PLUGIN_DIR/raycast.sh"
   click_script="open -a 'Raycast'; sketchybar --set raycast popup.drawing=off"
   icon.padding_left=12
@@ -15,6 +15,7 @@ opts=(
   label.drawing=off
   background.color="$BACKGROUND"
   background.corner_radius=8
+  background.border_color="$PURPLE_BORDER"
 )
 
 sketchybar --add item raycast left --set raycast "${opts[@]}"

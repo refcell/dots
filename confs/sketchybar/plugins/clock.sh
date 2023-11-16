@@ -8,4 +8,4 @@ source $HOME/.config/sketchybar/colors.sh
 
 label="$(date '+%I:%M %m/%d')"
 
-sketchybar --set $NAME label="$label" icon.color="$SELECTION_FOREGROUND"
+sketchybar --set $NAME label="$label"

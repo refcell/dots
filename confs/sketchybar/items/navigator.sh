@@ -45,4 +45,5 @@ source "$ITEM_DIR/app.sh"
 
 sketchybar --add bracket spaces "${spaces[@]}" space_separator app \
            --set spaces background.color=$BACKGROUND \
-                        background.corner_radius=8
+                        background.corner_radius=8 \
+                        background.border_color="$YELLOW_BORDER"

@@ -12,7 +12,7 @@ local config = {
   -- Styling --
   colorscheme = "catppuccin",
   icons = { VimIcon = "", },
-  -- heirline = { separators = { left = { "", " " }, right = { " ", "" } } },
+  heirline = { separators = { left = { "", " " }, right = { " ", "" } } },
 };
 
 return config;

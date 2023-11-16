@@ -15,6 +15,7 @@ opts=(
    label.padding_right=0
    background.color="$BACKGROUND"
    background.corner_radius=8
+   background.border_color="$COLOR12"
 )
 
 sketchybar --add item docker right --set docker "${opts[@]}"

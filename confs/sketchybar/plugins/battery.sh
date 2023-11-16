@@ -10,11 +10,11 @@ if [ $PERCENTAGE = "" ]; then
 fi
 
 case ${PERCENTAGE} in
-  9[0-9]|100) ICON="" COLOR=$FOREGROUND
+  9[0-9]|100) ICON="" COLOR=$COLOR14
   ;;
-  [6-8][0-9]) ICON="" COLOR=$FOREGROUND
+  [6-8][0-9]) ICON="" COLOR=$COLOR14
   ;;
-  [3-5][0-9]) ICON="" COLOR=$FOREGROUND
+  [3-5][0-9]) ICON="" COLOR=$COLOR14
   ;;
   [1-2][0-9]) ICON="" COLOR=$COLOR9
   ;;
