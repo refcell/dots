@@ -4,6 +4,8 @@ _Refer to [BlueFly](https://github.com/refcell/bluefly) for spinning up a dotfil
 
 [@refcell](https://github.com/refcell)'s dotfiles, configs, and tooling.
 
+[](./static/screen1.png)
+
 **Interface Tools**
 
 - [neovim](https://github.com/neovim/neovim)
