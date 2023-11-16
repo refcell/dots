@@ -6,4 +6,6 @@
 
 source $HOME/.config/sketchybar/colors.sh
 
-sketchybar --set $NAME label="$(date '+%a %d/%m %H:%M' | tr '[:upper:]' '[:lower:]')" icon.color="$SELECTION_FOREGROUND"
+label="$(date '+%I:%M %m/%d')"
+
+sketchybar --set $NAME label="$label" icon.color="$SELECTION_FOREGROUND"

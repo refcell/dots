@@ -42,6 +42,7 @@ sketchybar --default "${default[@]}"
 
 # Left hand side items
 source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/raycast.sh"
 source "$ITEM_DIR/navigator.sh"
 source "$ITEM_DIR/spotify.sh"
 
@@ -51,8 +52,8 @@ source "$ITEM_DIR/wifi.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/vpn.sh"
-source "$ITEM_DIR/raycast.sh"
 source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/docker.sh"
 
 # Finalizing Setup
 sketchybar --update

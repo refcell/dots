@@ -58,7 +58,6 @@ loads:
 	@cp ~/.alacritty.yml ./confs/alacritty/.alacritty.yml
 	@mkdir -p ./confs/gm
 	@cp -R ~/.gm/* ./confs/gm
-	@make load-nvim
 
 push:
 	@make clean

@@ -16,5 +16,6 @@ echo $TAILSCALE_LABEL
 if [[ $TAILSCALE_STATUS == "true" ]]; then
   sketchybar --set $NAME icon=󱗼 label="${TAILSCALE_LABEL}" icon.color="$COLOR12" label.color="$COLOR15"
 else
-  sketchybar --set $NAME --remove
+  sketchybar --set $NAME icon=󱗼 icon.color="$FOREGROUND" label.color="$FOREGROUND"
+  # sketchybar --remove $NAME 
 fi

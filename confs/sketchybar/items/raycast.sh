@@ -17,4 +17,4 @@ opts=(
   background.corner_radius=8
 )
 
-sketchybar --add item raycast right --set raycast "${opts[@]}"
+sketchybar --add item raycast left --set raycast "${opts[@]}"
