@@ -1,27 +1,40 @@
 ### https://github.com/refcell/dots/labels/dots • https://github.com/refcell/dots/labels/neovim https://github.com/refcell/dots/labels/catppuccin https://github.com/refcell/dots/labels/alacritty https://github.com/refcell/dots/labels/yabai https://github.com/refcell/dots/labels/sketchybar
 
-_Refer to [BlueFly](https://github.com/refcell/bluefly) for spinning up a dotfile-rich, one-shot development environment._
+[@refcell](https://github.com/refcell)'s dotfiles, configs, and tooling. _Refer to [BlueFly](https://github.com/refcell/bluefly) for a one-shot development environment composer._
 
-[@refcell](https://github.com/refcell)'s dotfiles, configs, and tooling.
+```sh
+git clone https://github.com/refcell/dots && cd dots && make
+```
+
+## Screenshots
 
 ![screengrab](./static/screengrab.png)
 
-**Interface Tools**
+```text
+  Chip  Apple M2
+ macOS  14.2 Beta (23C5041e)
+Device  Macbook Air, 2023
+```
 
+## windows + ui
+
+- [catppuccin](https://github.com/catppuccin/catppuccin)
+- [omz](https://github.com/ohmyzsh/ohmyzsh)
 - [neovim](https://github.com/neovim/neovim)
 - [astronvim](https://github.com/AstroNvim/AstroNvim)
-- [catppuccin](https://github.com/catppuccin/catppuccin)
-- [raycast](https://github.com/raycast)
-- [alacritty](https://github.com/alacritty/alacritty)
-- [arc](https://arc.net/)
 - [yabai](https://github.com/koekeishiya/yabai)
 - [skhd](https://github.com/koekeishiya/skhd)
-- [omz](https://github.com/ohmyzsh/ohmyzsh)
 - [sketchybar](https://github.com/FelixKratz/SketchyBar)
 - [Dynamic-Island-Sketchybar](https://github.com/crissNb/Dynamic-Island-Sketchybar)
 - [jankyborders](https://github.com/FelixKratz/JankyBorders)
 
-**Other Tools**
+## applications
+
+- [raycast](https://github.com/raycast)
+- [alacritty](https://github.com/alacritty/alacritty)
+- [arc](https://arc.net/)
+
+## cli tools
 
 - [`tmux`](https://github.com/tmux/tmux)
 - [`tpm`](https://github.com/tmux-plugins/tpm)
@@ -64,10 +77,10 @@ function brew() {
 }
 ```
 
-_Inspired by [hb](https://github.com/hbthen3rd)'s [dotfiles](https://github.com/hbthen3rd/dotfiles)._
-_Inspired by [@FelixKratz](https://github.com/FelixKratz)'s [dotfiles](https://github.com/FelixKratz/dotfiles)._
-_Inspired by [@clabby](https://github.com/clabby)'s [dots](https://github.com/clabby/dots)._
+**Credits**
 
-<a href="https://dotfyle.com/refcell/dots-confs-nvim"><img src="https://dotfyle.com/refcell/dots-confs-nvim/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/refcell/dots-confs-nvim"><img src="https://dotfyle.com/refcell/dots-confs-nvim/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/refcell/dots-confs-nvim"><img src="https://dotfyle.com/refcell/dots-confs-nvim/badges/plugin-manager?style=flat" /></a>
+[hb](https://github.com/hbthen3rd)'s sketchybar [dotfiles](https://github.com/hbthen3rd/dotfiles).
+
+[@FelixKratz](https://github.com/FelixKratz)'s yabai + skhd [dotfiles](https://github.com/FelixKratz/dotfiles).
+
+[@clabby](https://github.com/clabby)'s neovim [dots](https://github.com/clabby/dots).
