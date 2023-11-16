@@ -10,6 +10,10 @@ git clone https://github.com/refcell/dots && cd dots && make
 
 ![screengrab](./static/screengrab.png)
 
+![code](./static/code.png)
+
+![revm](./static/revm.png)
+
 ```text
   Chip  Apple M2
  macOS  14.2 Beta (23C5041e)
