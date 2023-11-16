@@ -4,7 +4,7 @@ _Refer to [BlueFly](https://github.com/refcell/bluefly) for spinning up a dotfil
 
 [@refcell](https://github.com/refcell)'s dotfiles, configs, and tooling.
 
-![screengrab 1](./static/screen1.png)
+![screengrab](./static/screengrab.png)
 
 **Interface Tools**
 
